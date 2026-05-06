@@ -1,0 +1,17 @@
+{
+    "1st grade": {
+        "Maths": {
+            "simple_algebra": "scripts/math/algebra.js"
+        }
+    },
+    "2nd grade": {
+        "Maths": {
+            "simple_algebra": "scripts/math/algebra.js"
+        }
+    },
+    "3rd grade": {
+        "Maths": {
+            "simple_algebra": "scripts/math/algebra.js"
+        }
+    }
+}
