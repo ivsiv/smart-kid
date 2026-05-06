@@ -162,6 +162,7 @@ footer {
 
 .answer-row input {
     flex: 1;
+    min-width: 0;
     font-size: 1.4rem;
     padding: 12px;
     border: 2px solid #ddd;
@@ -169,7 +170,17 @@ footer {
     text-align: center;
 }
 
-.answer-row button {
+#alg-answer {
+    flex: 2;
+}
+
+.submit-score-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.submit-score-row button {
     padding: 12px 20px;
     font-size: 1.2rem;
     border: none;
@@ -178,11 +189,11 @@ footer {
     color: #fff;
     cursor: pointer;
     font-weight: 600;
+    flex-shrink: 0;
 }
 
 .score {
     display: flex;
-    justify-content: center;
     gap: 20px;
     font-size: 1.1rem;
     font-weight: 600;

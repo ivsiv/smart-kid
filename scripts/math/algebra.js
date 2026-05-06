@@ -135,12 +135,14 @@ function initAlgebra(container) {
             <div class="task-display">${currentTask.a} ${opSymbol(currentTask.op)} ${currentTask.b} = ?${showRemainder ? ` (${t("algebra.remainder")}: ?)` : ""}</div>
             <div class="answer-row">
                 <input type="number" id="alg-answer" placeholder="?" inputmode="numeric">
-                ${showRemainder ? `<input type="number" id="alg-remainder" placeholder="${t("algebra.remainder")}" inputmode="numeric" style="width:80px">` : ""}
-                <button id="alg-submit">${t("algebra.submit")}</button>
+                ${showRemainder ? `<input type="number" id="alg-remainder" placeholder="${t("algebra.remainder")}" inputmode="numeric">` : ""}
             </div>
-            <div class="score">
-                <span class="correct">✓ ${correct}</span>
-                <span class="incorrect">✗ ${incorrect}</span>
+            <div class="submit-score-row">
+                <button id="alg-submit">${t("algebra.submit")}</button>
+                <div class="score">
+                    <span class="correct">✓ ${correct}</span>
+                    <span class="incorrect">✗ ${incorrect}</span>
+                </div>
             </div>
             <div class="scratchpad-section">
                 <label>${t("algebra.scratchpad")}</label>
