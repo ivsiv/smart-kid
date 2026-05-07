@@ -95,19 +95,19 @@ footer {
     color: #888;
 }
 
-/* Algebra page */
-.algebra-container {
+/* Arithmetic page */
+.arithmetic-container {
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-.algebra-container label {
+.arithmetic-container label {
     font-weight: 600;
     font-size: 0.9rem;
 }
 
-.algebra-container input[type="range"] {
+.arithmetic-container input[type="range"] {
     width: 100%;
 }
 

@@ -1,4 +1,4 @@
-function initAlgebra(container) {
+function initArithmetic(container) {
     let seed = Math.floor(Math.random() * 10000);
     let d1 = { min: 1, max: 1 };
     let d2 = { min: 1, max: 1 };
@@ -81,7 +81,7 @@ function initAlgebra(container) {
 
     function maxResultLabel() {
         const v = MAX_RESULT_STEPS[maxResultStep];
-        return v === 0 ? t("algebra.nolimit") : String(v);
+        return v === 0 ? t("arithmetic.nolimit") : String(v);
     }
 
     let currentTask = null;
@@ -95,36 +95,36 @@ function initAlgebra(container) {
         const showRemainder = currentTask.op === "/";
 
         container.innerHTML = `
-        <div class="algebra-container">
+        <div class="arithmetic-container">
             <div class="seed-row">
-                <label>${t("algebra.seed")}:</label>
-                <input type="number" id="alg-seed" value="${seed}">
-                <button id="alg-reseed">${t("algebra.regenerate")}</button>
+                <label>${t("arithmetic.seed")}:</label>
+                <input type="number" id="arith-seed" value="${seed}">
+                <button id="arith-reseed">${t("arithmetic.regenerate")}</button>
             </div>
             <div>
-                <label>${t("algebra.digits1")}: <span class="range-val">${d1.min}–${d1.max}</span></label>
+                <label>${t("arithmetic.digits1")}: <span class="range-val">${d1.min}–${d1.max}</span></label>
                 <div class="dual-range">
-                    <span>${t("algebra.from")}</span>
-                    <input type="range" id="alg-d1-min" min="1" max="4" value="${d1.min}">
-                    <span>${t("algebra.to")}</span>
-                    <input type="range" id="alg-d1-max" min="1" max="4" value="${d1.max}">
+                    <span>${t("arithmetic.from")}</span>
+                    <input type="range" id="arith-d1-min" min="1" max="4" value="${d1.min}">
+                    <span>${t("arithmetic.to")}</span>
+                    <input type="range" id="arith-d1-max" min="1" max="4" value="${d1.max}">
                 </div>
             </div>
             <div>
-                <label>${t("algebra.digits2")}: <span class="range-val">${d2.min}–${d2.max}</span></label>
+                <label>${t("arithmetic.digits2")}: <span class="range-val">${d2.min}–${d2.max}</span></label>
                 <div class="dual-range">
-                    <span>${t("algebra.from")}</span>
-                    <input type="range" id="alg-d2-min" min="1" max="4" value="${d2.min}">
-                    <span>${t("algebra.to")}</span>
-                    <input type="range" id="alg-d2-max" min="1" max="4" value="${d2.max}">
+                    <span>${t("arithmetic.from")}</span>
+                    <input type="range" id="arith-d2-min" min="1" max="4" value="${d2.min}">
+                    <span>${t("arithmetic.to")}</span>
+                    <input type="range" id="arith-d2-max" min="1" max="4" value="${d2.max}">
                 </div>
             </div>
             <div>
-                <label>${t("algebra.maxresult")}: <span class="range-val" id="maxresult-val">${maxResultLabel()}</span></label>
-                <input type="range" id="alg-maxresult" min="0" max="9" step="1" value="${maxResultStep}">
+                <label>${t("arithmetic.maxresult")}: <span class="range-val" id="maxresult-val">${maxResultLabel()}</span></label>
+                <input type="range" id="arith-maxresult" min="0" max="9" step="1" value="${maxResultStep}">
             </div>
             <div>
-                <label>${t("algebra.ops")}:</label>
+                <label>${t("arithmetic.ops")}:</label>
                 <div class="ops-select">
                     <label><input type="checkbox" value="+" ${ops.includes("+")?"checked":""}> +</label>
                     <label><input type="checkbox" value="-" ${ops.includes("-")?"checked":""}> −</label>
@@ -132,29 +132,29 @@ function initAlgebra(container) {
                     <label><input type="checkbox" value="/" ${ops.includes("/")?"checked":""}> ÷</label>
                 </div>
             </div>
-            <div class="task-display">${currentTask.a} ${opSymbol(currentTask.op)} ${currentTask.b} = ?${showRemainder ? ` (${t("algebra.remainder")}: ?)` : ""}</div>
+            <div class="task-display">${currentTask.a} ${opSymbol(currentTask.op)} ${currentTask.b} = ?${showRemainder ? ` (${t("arithmetic.remainder")}: ?)` : ""}</div>
             <div class="answer-row">
-                <input type="number" id="alg-answer" placeholder="?" inputmode="numeric">
-                ${showRemainder ? `<input type="number" id="alg-remainder" placeholder="${t("algebra.remainder")}" inputmode="numeric">` : ""}
+                <input type="number" id="arith-answer" placeholder="?" inputmode="numeric">
+                ${showRemainder ? `<input type="number" id="arith-remainder" placeholder="${t("arithmetic.remainder")}" inputmode="numeric">` : ""}
             </div>
             <div class="submit-score-row">
-                <button id="alg-submit">${t("algebra.submit")}</button>
+                <button id="arith-submit">${t("arithmetic.submit")}</button>
                 <div class="score">
                     <span class="correct">✓ ${correct}</span>
                     <span class="incorrect">✗ ${incorrect}</span>
                 </div>
             </div>
             <div class="scratchpad-section">
-                <label>${t("algebra.scratchpad")}</label>
+                <label>${t("arithmetic.scratchpad")}</label>
                 <div class="scratchpad-controls">
-                    <label>${t("algebra.size")}:</label>
+                    <label>${t("arithmetic.size")}:</label>
                     <select id="grid-size">${[5,6,7,8].map(n=>`<option value="${n}" ${n===gridSize?"selected":""}>${n}×${n}</option>`).join("")}</select>
                 </div>
                 <div class="scratchpad-grid" id="scratchpad" style="grid-template-columns:repeat(${gridSize},36px)"></div>
             </div>
             <div class="history-section">
-                <label>${t("algebra.history")}</label>
-                <div id="alg-history">${history.map(h=>`<div class="history-item ${h.ok?"ok":"fail"}">${h.text}</div>`).join("")}</div>
+                <label>${t("arithmetic.history")}</label>
+                <div id="arith-history">${history.map(h=>`<div class="history-item ${h.ok?"ok":"fail"}">${h.text}</div>`).join("")}</div>
             </div>
         </div>`;
 
@@ -176,46 +176,46 @@ function initAlgebra(container) {
         }
 
         // Events
-        document.getElementById("alg-seed").addEventListener("change", e => {
+        document.getElementById("arith-seed").addEventListener("change", e => {
             seed = parseInt(e.target.value) || 0;
             history = []; correct = 0; incorrect = 0;
             render();
         });
-        document.getElementById("alg-reseed").addEventListener("click", () => {
+        document.getElementById("arith-reseed").addEventListener("click", () => {
             seed = Math.floor(Math.random() * 10000);
             history = []; correct = 0; incorrect = 0;
             render();
         });
 
         function updateD1Label() {
-            container.querySelector("#alg-d1-min").closest("div").querySelector(".range-val").textContent = `${d1.min}–${d1.max}`;
+            container.querySelector("#arith-d1-min").closest("div").querySelector(".range-val").textContent = `${d1.min}–${d1.max}`;
         }
         function updateD2Label() {
-            container.querySelector("#alg-d2-min").closest("div").querySelector(".range-val").textContent = `${d2.min}–${d2.max}`;
+            container.querySelector("#arith-d2-min").closest("div").querySelector(".range-val").textContent = `${d2.min}–${d2.max}`;
         }
 
-        document.getElementById("alg-d1-min").addEventListener("input", e => {
+        document.getElementById("arith-d1-min").addEventListener("input", e => {
             d1.min = parseInt(e.target.value);
-            if (d1.min > d1.max) { d1.max = d1.min; document.getElementById("alg-d1-max").value = d1.max; }
+            if (d1.min > d1.max) { d1.max = d1.min; document.getElementById("arith-d1-max").value = d1.max; }
             updateD1Label();
         });
-        document.getElementById("alg-d1-max").addEventListener("input", e => {
+        document.getElementById("arith-d1-max").addEventListener("input", e => {
             d1.max = parseInt(e.target.value);
-            if (d1.max < d1.min) { d1.min = d1.max; document.getElementById("alg-d1-min").value = d1.min; }
+            if (d1.max < d1.min) { d1.min = d1.max; document.getElementById("arith-d1-min").value = d1.min; }
             updateD1Label();
         });
-        document.getElementById("alg-d2-min").addEventListener("input", e => {
+        document.getElementById("arith-d2-min").addEventListener("input", e => {
             d2.min = parseInt(e.target.value);
-            if (d2.min > d2.max) { d2.max = d2.min; document.getElementById("alg-d2-max").value = d2.max; }
+            if (d2.min > d2.max) { d2.max = d2.min; document.getElementById("arith-d2-max").value = d2.max; }
             updateD2Label();
         });
-        document.getElementById("alg-d2-max").addEventListener("input", e => {
+        document.getElementById("arith-d2-max").addEventListener("input", e => {
             d2.max = parseInt(e.target.value);
-            if (d2.max < d2.min) { d2.min = d2.max; document.getElementById("alg-d2-min").value = d2.min; }
+            if (d2.max < d2.min) { d2.min = d2.max; document.getElementById("arith-d2-min").value = d2.min; }
             updateD2Label();
         });
 
-        document.getElementById("alg-maxresult").addEventListener("input", e => {
+        document.getElementById("arith-maxresult").addEventListener("input", e => {
             maxResultStep = parseInt(e.target.value);
             document.getElementById("maxresult-val").textContent = maxResultLabel();
         });
@@ -230,15 +230,15 @@ function initAlgebra(container) {
             gridSize = parseInt(e.target.value);
             render();
         });
-        document.getElementById("alg-submit").addEventListener("click", submit);
-        document.getElementById("alg-answer").addEventListener("keydown", e => {
+        document.getElementById("arith-submit").addEventListener("click", submit);
+        document.getElementById("arith-answer").addEventListener("keydown", e => {
             if (e.key === "Enter") submit();
         });
     }
 
     function submit() {
-        const ansEl = document.getElementById("alg-answer");
-        const remEl = document.getElementById("alg-remainder");
+        const ansEl = document.getElementById("arith-answer");
+        const remEl = document.getElementById("arith-remainder");
         const userAns = parseInt(ansEl.value);
         const expected = computeAnswer(currentTask);
         let isCorrect = userAns === expected.result;
@@ -251,7 +251,9 @@ function initAlgebra(container) {
         history.push({ ok: isCorrect, text });
         if (isCorrect) correct++; else incorrect++;
         render();
-        document.getElementById("alg-answer").focus();
+        const taskDisplay = container.querySelector(".task-display");
+        if (taskDisplay) taskDisplay.scrollIntoView({ behavior: "smooth", block: "start" });
+        document.getElementById("arith-answer").focus();
     }
 
     render();

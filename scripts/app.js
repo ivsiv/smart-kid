@@ -102,6 +102,6 @@ function loadScript(src) {
     main.innerHTML = "";
     const s = document.createElement("script");
     s.src = src;
-    s.onload = () => { if (typeof initAlgebra === "function") initAlgebra(main); };
+    s.onload = () => { if (typeof initArithmetic === "function") initArithmetic(main); };
     document.body.appendChild(s);
 }
