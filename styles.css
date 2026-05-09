@@ -283,3 +283,131 @@ footer {
 
 .history-item.ok { background: #d4edda; }
 .history-item.fail { background: #f8d7da; }
+
+/* Listed words (vyjmenovaná slova) exercise */
+.lw-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.lw-container label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.lw-letters-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+}
+
+.lw-letters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.lw-letter-label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.lw-diff-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.lw-diff-row input[type="range"] {
+    width: 100%;
+}
+
+.lw-diff-ticks {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #777;
+    padding: 0 2px;
+}
+
+.lw-sentence-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 1.25rem;
+    line-height: 2.4;
+    border: 2px solid #e0e0e0;
+}
+
+.lw-letter-badge {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #4a90d9;
+    margin-bottom: 6px;
+    letter-spacing: 0.05em;
+}
+
+/* Inline gap widget sits on the text baseline */
+.lw-gap {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    vertical-align: bottom;
+    margin: 0 1px;
+}
+
+.lw-gap-btns {
+    display: flex;
+    gap: 3px;
+}
+
+.lw-gap-btn {
+    padding: 2px 7px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #f4f4f4;
+    line-height: 1.5;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.lw-gap-btn.lw-selected {
+    background: #4a90d9;
+    color: #fff;
+    border-color: #3a7bc8;
+}
+
+.lw-gap-slot {
+    font-weight: 700;
+    min-width: 1ch;
+    text-align: center;
+    border-bottom: 2px solid #555;
+    padding: 0 3px;
+    line-height: 1.1;
+}
+
+.lw-gap-ok .lw-gap-slot {
+    color: #27ae60;
+    border-bottom-color: #27ae60;
+}
+
+.lw-gap-fail .lw-gap-slot {
+    color: #e74c3c;
+    border-bottom-color: #e74c3c;
+}
+
+/* Dim buttons after checking */
+.lw-gap-ok .lw-gap-btn,
+.lw-gap-fail .lw-gap-btn {
+    opacity: 0.45;
+    pointer-events: none;
+}

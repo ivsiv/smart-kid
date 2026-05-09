@@ -12,6 +12,9 @@
     "3rd grade": {
         "Maths": {
             "simple_arithmetic": "scripts/math/arithmetic.js"
+        },
+        "Czech": {
+            "listed_words": "scripts/czech/listed_words.js"
         }
     }
 }

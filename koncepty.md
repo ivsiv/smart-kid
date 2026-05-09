@@ -16,3 +16,17 @@ vyber poctu cifier druheho cinitela (moving bar s rozsahom)
 zobrazenie zadania + poicka na vysledok + submit button
 input window pre poznamky a pomocne vypocty (nieco ako mriezkovy papier s moznostoou vpisovat cisla do policok - vybereie policko a pise. dalsie cislo sa pise automaticky do dalsieho policka, ak je policko plne, neprepise sa automaticky. hodnota vpisana v policku sa meni iba po kliknuti na dane policko. po vybrati policka je hodnota oznacena - ide ju hned prepisat, alebo zmazat)
 counter - correct/incorrect, tracking (ktore priklady boli zle, ake bolo celkove rozlozenie prikladov v ramci zvoleneho rozsahu - 3 listy s rozsahom a cervenymi/zelenymi ciarkami; pripadne aj/alebo tabulka s odpovedami)
+
+## slovni ulohy
+kruh, kruznice
+
+# cestina
+
+prace s textem - doplnovani i/y
+pocet vet v textu
+cteni s porozumenim, vyznam a pouziti slov
+doplneni rady vyjmenovanych slov
+pouziti stejne znejicich slov ve vetach
+slovni druhy, mluvnicke kategorie
+nazvy slovnich druhu 
+mluvnicke kategorie podstatnych jmen a sloves

@@ -100,8 +100,16 @@ function loadScript(src) {
     updateBreadcrumb();
     const main = document.getElementById("content");
     main.innerHTML = "";
+    // Clear previously loaded init functions so the correct one is detected after load
+    window.initArithmetic = undefined;
+    window.initListedWords = undefined;
+    window._initScript = undefined;
     const s = document.createElement("script");
     s.src = src;
-    s.onload = () => { if (typeof initArithmetic === "function") initArithmetic(main); };
+    s.onload = () => {
+        if (typeof window._initScript === "function") { window._initScript(main); return; }
+        if (typeof initArithmetic === "function") initArithmetic(main);
+        else if (typeof initListedWords === "function") initListedWords(main);
+    };
     document.body.appendChild(s);
 }
